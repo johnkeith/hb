@@ -2,7 +2,6 @@ class CreateProfilesAndLocations < ActiveRecord::Migration
   def change
     create_table :profiles do |t|
     	t.integer :user_id, null: false
-    	t.integer :location_id
       t.integer :age
       t.timestamps
     end
