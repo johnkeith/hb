@@ -22,6 +22,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def edit
+		@location ||= Location.new
 	end
 
 	def update
