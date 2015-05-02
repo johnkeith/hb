@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: 'landing#index'
 
   resources :profiles
-  resources :locations, only: [:new, :create, :edit, :update]
+  resources :locations, only: [:new, :create, :update]
 end
