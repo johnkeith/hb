@@ -26,10 +26,23 @@ class ProfilesController < ApplicationController
 	end
 
 	def update
+		@profile = current_user.profile
+		if @profile.update_attributes(profile_params)
+			redirect_to root_path
+		else
+			render 'edit'
+		end
 	end
 
 	def destory
 	end
 
 	private :get_location_user_profile
+	
+	private
+
+	def profile_params
+		params.require(:profile).permit(:age)
+	end
+
 end
