@@ -1,4 +1,4 @@
-Database structure
+## Database Structure
 
 A location has many users
 A user belongs to a location
