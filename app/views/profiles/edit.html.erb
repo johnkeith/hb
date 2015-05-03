@@ -9,7 +9,7 @@
 <% end %>
 
 <h2>Location Information</h2>
-<%= form_for @location do |f| %>
+<%= form_for @location, remote: true do |f| %>
 	<%= f.label :city, 'City' %>	
 	<%= f.text_field :city %>
 

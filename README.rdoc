@@ -1,3 +1,6 @@
+## Overall Approach
+Tend toward an API approach. Try to have controller actions respond to JSON out of the box.
+
 ## Database Structure
 
 A location has many users

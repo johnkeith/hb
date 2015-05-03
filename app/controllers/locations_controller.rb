@@ -5,33 +5,30 @@ class LocationsController < ApplicationController
 	def create
 		@location = Location.new(location_params)
 
-		referrer_params = get_referrer_params
-		
-		if referrer_params[:controller] == 'profiles'
+		respond_to do |f|
 			if @location.save
-				@profile = Profile.find_by(id: referrer_params[:id])
-
-				@profile.user.update_attributes(location_id: @location.id)
-
-				redirect_to profile_path(referrer_params[:id])
+				f.json { render json: @location, status: 200 }
 			else
-				redirect_to edit_profile_path(referrer_params[:id])
+				f.json { render json: @location.errors.full_messages, status: 422 }
 			end
-		else
-			redirect_to root_path
 		end
 	end
 
 	def update
+		@location = Location.find_by(id: params[:id])
+
+		respond_to do |f|
+			if @location.update_attributes(location_params)
+				f.json { render json: @location, status: 200 }
+			else
+				f.json { render json: @location.errors.full_messages, status: 422 }
+			end
+		end
 	end
 
 	private
 
 	def location_params
 		params.require(:location).permit(:city, :state, :country)
-	end
-
-	def get_referrer_params
-		Rails.application.routes.recognize_path(request.referrer)
 	end
 end
