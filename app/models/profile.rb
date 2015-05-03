@@ -1,4 +1,4 @@
 class Profile < ActiveRecord::Base
 	belongs_to :user
-	delegate :location, to: :user
+	has_one :location, through: :user
 end

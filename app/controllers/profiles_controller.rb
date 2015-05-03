@@ -36,8 +36,6 @@ class ProfilesController < ApplicationController
 
 	def destory
 	end
-
-	private :get_location_user_profile
 	
 	private
 
