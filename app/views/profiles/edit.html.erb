@@ -1,5 +1,5 @@
 <h2>Personal Information</h2>
-<%= form_for @profile do |f| %>
+<%= form_for @profile, remote: true do |f| %>
 	<%= f.label :age, 'Age' %>
 	<%= f.number_field :age, in: 0..150, step: 1 %>
 
@@ -9,7 +9,7 @@
 <% end %>
 
 <h2>Location Information</h2>
-<%= form_for @location, url: edit_profile_location_path, method: 'POST', remote: true do |f| %>
+<%= form_for @location, url: edit_location_profile_path, method: 'POST', remote: true do |f| %>
 	<%= f.label :city, 'City' %>	
 	<%= f.text_field :city %>
 

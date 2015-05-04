@@ -27,10 +27,13 @@ class ProfilesController < ApplicationController
 
 	def update
 		@profile = current_user.profile
-		if @profile.update_attributes(profile_params)
-			redirect_to root_path
-		else
-			render 'edit'
+		
+		respond_to do |f|
+			if @profile.update_attributes(profile_params)
+				f.json { render json: @profile, status: 200 }
+			else
+				f.json { render json: @profile.errors.full_messages, status: 422 }
+			end
 		end
 	end
 
