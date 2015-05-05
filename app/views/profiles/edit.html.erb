@@ -1,5 +1,25 @@
 <h2>Personal Information</h2>
 <%= form_for @profile, remote: true do |f| %>
+	<%= f.label :first_name, 'First Name' %>
+	<%= f.text_field :first_name %>
+
+	<br />
+
+	<%= f.label :last_name, 'Last Name' %>
+	<%= f.text_field :last_name %>
+
+	<br />
+
+	<%= f.label :personal_description, 'Please describe yourself!' %>
+	<%= f.text_area :personal_description %>
+
+	<br />
+
+	<%= f.label :city_description, 'Please describe where you live!' %>
+	<%= f.text_area :city_description %>
+
+	<br />
+
 	<%= f.label :age, 'Age' %>
 	<%= f.number_field :age, in: 0..150, step: 1 %>
 
