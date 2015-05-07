@@ -1,27 +1,17 @@
 class ProfilesController < ApplicationController
 	before_action :authenticate_user!
 
-	before_filter :get_location_user_profile, only: [:show, :edit]
-
 	def index
-	end
-
-	def new
-	end
-
-	def create
 	end
 
 	def show
 	end
 
 	def edit
-		@location ||= Location.new
+		@location = current_user.location || Location.new
 	end
 
-	def update
-		@profile = current_user.profile
-		
+	def update		
 		respond_to do |f|
 			if @profile.update_attributes(profile_params)
 				f.json { render json: @profile, status: 200 }
@@ -31,12 +21,13 @@ class ProfilesController < ApplicationController
 		end
 	end
 
-	def destory
-	end
+	# def destory
+	# end
 	
 	private
 
 	def profile_params
-		params.require(:profile).permit(:age)
+		params.require(:profile).permit(:first_name, :last_name,
+			:personal_description, :city_description, :age)
 	end
 end

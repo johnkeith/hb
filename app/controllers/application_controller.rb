@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :get_user_profile
+
 	private 
   
   def get_referrer_params
@@ -13,9 +15,9 @@ class ApplicationController < ActionController::Base
 		@referrer_params = get_referrer_params
 	end
 
-	def get_location_user_profile
-		@user 		= current_user
-		@location = current_user.location
-		@profile 	= current_user.profile
+	def get_user_profile
+		if current_user
+			@profile = current_user.profile
+		end
 	end
 end
