@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def show
+		@location = current_user.location
 	end
 
 	def edit

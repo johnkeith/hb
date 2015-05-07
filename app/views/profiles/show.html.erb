@@ -1,2 +1,26 @@
-<h2>This is the profiles page!</h2>
+<h2>This is the profile page for <%= @profile.full_name %></h2>
+<% if @profile.age %>
+	<p>Age: <%= @profile.age %></p>
+<% end %>
+
+<% if @profile.personal_description %>
+	<h4>About Me</h4>
+	<p><%= @profile.personal_description %></p>
+<% else %>
+	<p><%= link_to 'Add an about me description to your profile', edit_profile_path(@profile) %></p>
+<% end %>
+
+
+<% if @location || @profile.city_description %>
+	<h4>About Where I Live</h4>
+	<% if @location %>
+		<p>City: <%= @location.city %></p>
+		<p>State: <%= @location.state %></p>
+		<p>Country: <%= @location.country %></p>
+	<% end %>
+	<p><%= @profile.city_description %></p>
+<% else %>
+	<p><%= link_to 'Add information about the city where you live', edit_profile_path(@profile) %></p>
+<% end %>
+
 
