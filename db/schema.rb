@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507114030) do
+ActiveRecord::Schema.define(version: 20150507114312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20150507114030) do
     t.text     "personal_description"
     t.text     "city_description"
   end
+
+  create_table "user_conversations", force: :cascade do |t|
+    t.integer "conversation_id", null: false
+    t.integer "user_id",         null: false
+  end
+
+  add_index "user_conversations", ["conversation_id"], name: "index_user_conversations_on_conversation_id", using: :btree
+  add_index "user_conversations", ["user_id"], name: "index_user_conversations_on_user_id", using: :btree
 
   create_table "user_languages", force: :cascade do |t|
     t.integer  "user_id",     null: false
