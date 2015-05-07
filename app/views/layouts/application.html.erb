@@ -20,6 +20,7 @@
 		<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
 		<li><%= link_to 'View your Profile', profile_path(@profile) %></li>
 		<li><%= link_to 'Edit your Profile', edit_profile_path(@profile) %></li>
+		<li><%= link_to 'Browse', profiles_path %></li>
 	</ul>
 <% end %>
 <hr />

@@ -1,0 +1,13 @@
+<% @profiles.each do |p| %>
+	<% if p.first_name || p.last_name %>
+		<ul>
+			<li><%= p.full_name %></li>
+			<% if p.location %>
+				<li><%= p.location.city %> <%= p.location.country %></li>
+			<% end %>
+		</ul>
+		<hr />
+	<% end %>
+<% end %>
+
+<%= paginate @profiles %>

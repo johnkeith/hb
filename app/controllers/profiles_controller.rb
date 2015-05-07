@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
+		@profiles = Profile.includes(:location).order(:updated_at).page(params[:page])
 	end
 
 	def show

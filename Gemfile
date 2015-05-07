@@ -10,9 +10,15 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
-###
+### custom
 
 gem 'devise'
+gem 'kaminari'
+
+# handles for '' in forms and keeps them null in db
+gem "nilify_blanks"
+
+## by group
 
 group :doc do
 	gem 'sdoc', '~> 0.4.0'
