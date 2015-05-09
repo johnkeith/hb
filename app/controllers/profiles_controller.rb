@@ -6,10 +6,15 @@ class ProfilesController < ApplicationController
 	end
 
 	def show
-		@location = current_user.location
+		@profile = Profile.find(params[:id])
+		@location = @profile.location
 	end
 
 	def edit
+		@profile = current_user.profile
+
+		redirect_to edit_profile_path(@profile) unless params[:id] == @profile.id.to_s
+		
 		@location = current_user.location || Location.new
 	end
 
