@@ -11,9 +11,7 @@ class ProfilesController < ApplicationController
 		@location = @profile.location
 
 		unless @profile == current_user.profile
-			shared_conversation_ids = UserConversation.where(user_id: [@profile_user_id, current_user.id])
-				.pluck(:conversation_id).instance_eval { detect { |c| count(c) > 0 } }
-			@conversations = Conversation.where(id: shared_conversation_ids)
+			Conversation.find_shared_conversations(@profile_user_id, current_user.id)
 		end
 	end
 
