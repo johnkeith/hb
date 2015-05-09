@@ -7,7 +7,14 @@ class ProfilesController < ApplicationController
 
 	def show
 		@profile = Profile.find(params[:id])
+		@profile_user_id = @profile.user.id
 		@location = @profile.location
+
+		unless @profile == current_user.profile
+			shared_conversation_ids = UserConversation.where(user_id: [@profile_user_id, current_user.id])
+				.pluck(:conversation_id).instance_eval { detect { |c| count(c) > 0 } }
+			@conversations = Conversation.where(id: shared_conversation_ids)
+		end
 	end
 
 	def edit
