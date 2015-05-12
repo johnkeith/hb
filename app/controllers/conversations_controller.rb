@@ -15,8 +15,10 @@ class ConversationsController < ApplicationController
 		content[:statement][:last_name] 	= @current_user_profile.last_name
 		content[:statement][:user_id] 		= current_user.id
 		content[:statement][:content] 		= params[:conversation_addition]
+
+		content_as_json = [content].to_json
 		
-		conversation = Conversation.create(content: content)
+		conversation = Conversation.create(content: content_as_json)
 
 		UserConversation.create([
 			{ user_id: current_user.id, conversation_id: conversation.id },

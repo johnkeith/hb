@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150507114312) do
   enable_extension "plpgsql"
 
   create_table "conversations", force: :cascade do |t|
-    t.jsonb "content", null: false
+    t.jsonb "content"
   end
 
   add_index "conversations", ["content"], name: "index_conversations_on_content", using: :gin
