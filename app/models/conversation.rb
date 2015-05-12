@@ -4,7 +4,7 @@ class Conversation < ActiveRecord::Base
 	def self.find_shared_conversations(user_id_one, user_id_two)
 		shared_conversation_ids = UserConversation.where(user_id: [user_id_one, user_id_two])
 			.pluck(:conversation_id).instance_eval { detect { |c| count(c) > 1 } }
-		
+
 		Conversation.where(id: shared_conversation_ids)
 	end
 

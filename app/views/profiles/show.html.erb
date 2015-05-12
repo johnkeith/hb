@@ -25,13 +25,21 @@
 
 <hr />
 
-<% if @conversation && @conversation.empty? %>
+<% if @conversations && @conversations.empty? %>
  	<p>Start a conversation with <%= @profile.first_name %></p>
  	<%= form_tag('/start_conversation', method: 'post') do %>
   	<%= text_area_tag :conversation_addition %>
   	<%= submit_tag('Submit') %>
  	<% end %>
 <% else %>
+	<p>Conversations with <%= @profile.first_name %></p>
+	<% @conversations.each do |conversation| %>
+		<% conversation.content.each do |s| %>
+			<p><strong><%= s['statement']['first_name'] %></strong>: <%= s['statement']['content'] %></p>
+			<small><%= s['statement']['timestamp'] %></small>
+		<% end %>
+	<% end %>
+	
 <% end %>
 
 
