@@ -23,4 +23,15 @@
 	<p><%= link_to 'Add information about the city where you live', edit_profile_path(@profile) %></p>
 <% end %>
 
+<hr />
+
+<% if @conversation && @conversation.empty? %>
+ 	<p>Start a conversation with <%= @profile.first_name %></p>
+ 	<%= form_tag('/start_conversation', method: 'post') do %>
+  	<%= text_area_tag :conversation_addition %>
+  	<%= submit_tag('Submit') %>
+ 	<% end %>
+<% else %>
+<% end %>
+
 

@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
 		@location = @profile.location
 
 		unless @profile == current_user.profile
-			Conversation.find_shared_conversations(@profile_user_id, current_user.id)
+			@conversation = Conversation.find_shared_conversations(@profile_user_id, current_user.id)
 		end
 	end
 

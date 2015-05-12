@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 			post '/edit_location', to: 'locations#create_or_associate', as: :edit_location
 		end
 	end
+
+	post '/start_conversation', to: 'conversations#create', as: :create_conversation
 end

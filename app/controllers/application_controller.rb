@@ -6,6 +6,14 @@ class ApplicationController < ActionController::Base
   before_action :get_user_profile
 
 	private 
+  
+  def get_referrer_params
+		Rails.application.routes.recognize_path(request.referrer)
+	end
+
+	def set_referrer_params
+		@referrer_params = get_referrer_params
+	end
 
 	def get_user_profile
 		if current_user
