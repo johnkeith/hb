@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 	end
 
 	post '/start_conversation', to: 'conversations#create', as: :create_conversation
+	post '/add_to_conversation', to: 'conversations#update', as: :update_conversation
 end

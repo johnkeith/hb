@@ -9,8 +9,9 @@ class ProfilesController < ApplicationController
 		@profile = Profile.find(params[:id])
 		@profile_user_id = @profile.user.id
 		@location = @profile.location
-
-		unless @profile == current_user.profile
+		@current_users_profile = @profile == current_user.profile
+		
+		unless @current_users_profile
 			@conversations = Conversation.find_shared_conversations(@profile_user_id, current_user.id)
 		end
 	end

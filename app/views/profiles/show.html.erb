@@ -6,7 +6,7 @@
 <% if @profile.personal_description %>
 	<h4>About Me</h4>
 	<p><%= @profile.personal_description %></p>
-<% else %>
+<% elsif @current_users_profile %>
 	<p><%= link_to 'Add an about me description to your profile', edit_profile_path(@profile) %></p>
 <% end %>
 
@@ -19,27 +19,34 @@
 		<p>Country: <%= @location.country %></p>
 	<% end %>
 	<p><%= @profile.city_description %></p>
-<% else %>
+<% elsif @current_users_profile %>
 	<p><%= link_to 'Add information about the city where you live', edit_profile_path(@profile) %></p>
 <% end %>
 
 <hr />
 
-<% if @conversations && @conversations.empty? %>
- 	<p>Start a conversation with <%= @profile.first_name %></p>
- 	<%= form_tag('/start_conversation', method: 'post') do %>
-  	<%= text_area_tag :conversation_addition %>
-  	<%= submit_tag('Submit') %>
- 	<% end %>
-<% else %>
-	<p>Conversations with <%= @profile.first_name %></p>
-	<% @conversations.each do |conversation| %>
-		<% conversation.content.each do |s| %>
-			<p><strong><%= s['statement']['first_name'] %></strong>: <%= s['statement']['content'] %></p>
-			<small><%= s['statement']['timestamp'] %></small>
+<% unless @current_users_profile %>
+	<% if @conversations %>
+		<p>Conversations with <%= @profile.first_name %></p>
+		<% @conversations.each do |conversation| %>
+			<% conversation.content.each do |s| %>
+				<p><strong><%= s['statement']['first_name'] %></strong>: <%= s['statement']['content'] %></p>
+				<small><%= s['statement']['timestamp'] %></small>
+			<% end %>
+			<p>Add to conversation</p>
+			<%= form_tag('/add_to_conversation', method: 'post') do %>
+				<%= hidden_field_tag :conversation_id, conversation.id %>
+		  	<%= text_area_tag :conversation_addition %>
+		  	<%= submit_tag('Submit') %>
+		 	<% end %>
 		<% end %>
+	<% else %>
+	 	<p>Start a conversation with <%= @profile.first_name %></p>
+	 	<%= form_tag('/start_conversation', method: 'post') do %>
+	  	<%= text_area_tag :conversation_addition %>
+	  	<%= submit_tag('Submit') %>
+	 	<% end %>
 	<% end %>
-	
 <% end %>
 
 
