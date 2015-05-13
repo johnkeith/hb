@@ -1,5 +1,5 @@
 <h2>Personal Information</h2>
-<%= form_for @profile, remote: true do |f| %>
+<%= form_for @current_user_profile, remote: true do |f| %>
 	<%= f.label :first_name, 'First Name' %>
 	<%= f.text_field :first_name %>
 

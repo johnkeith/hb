@@ -1,6 +1,4 @@
 class ConversationsController < ApplicationController
-	before_action :get_user_profile, only: [:create, :update]
-
 	def create
 		referrer_params = get_referrer_params
 		message_recipient_id = referrer_params[:id] if referrer_params[:controller] == 'profiles'

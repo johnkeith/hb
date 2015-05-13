@@ -17,19 +17,19 @@ class ProfilesController < ApplicationController
 	end
 
 	def edit
-		@profile = current_user.profile
-
-		redirect_to edit_profile_path(@profile) unless params[:id] == @profile.id.to_s
+		unless params[:id] == @current_user_profile.id.to_s
+			redirect_to edit_profile_path(@current_user_profile) 
+		end
 		
 		@location = current_user.location || Location.new
 	end
 
-	def update		
+	def update
 		respond_to do |f|
-			if @profile.update_attributes(profile_params)
-				f.json { render json: @profile, status: 200 }
+			if @current_user_profile.update_attributes(profile_params)
+				f.json { render json: @current_user_profile, status: 200 }
 			else
-				f.json { render json: @profile.errors.full_messages, status: 422 }
+				f.json { render json: @current_user_profile.errors.full_messages, status: 422 }
 			end
 		end
 	end
