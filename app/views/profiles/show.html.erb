@@ -26,7 +26,7 @@
 <hr />
 
 <% unless @current_users_profile %>
-	<% if @conversations %>
+	<% if @conversations && @conversations.empty? == false %>
 		<p>Conversations with <%= @profile.first_name %></p>
 		<% @conversations.each do |conversation| %>
 			<% conversation.content.each do |s| %>
