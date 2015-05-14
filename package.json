@@ -1,0 +1,7 @@
+"dependencies": {
+    "bower": "1.4.x"
+},
+"scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+}
+// http://xseignard.github.io/2013/02/18/use-bower-with-heroku/
