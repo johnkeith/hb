@@ -8,22 +8,8 @@
 </head>
 <body>
 
-<!-- future nav links: NEED TO FIGURE OUT THE INSTANCE VARS -->
-<small>Future Navbar Links</small>
-<% if user_signed_in? == false %>
-	<ul>
-		<li><%= link_to 'Create an Account', new_user_registration_path %></li>
-		<li><%= link_to 'Sign in to your Account', new_user_session_path %></li>
-	</ul>
-<% else %>
-	<ul>
-		<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-		<li><%= link_to 'View your Profile', profile_path(@current_user_profile) %></li>
-		<li><%= link_to 'Edit your Profile', edit_profile_path(@current_user_profile) %></li>
-		<li><%= link_to 'Browse', profiles_path %></li>
-	</ul>
-<% end %>
-<hr />
+<%= render "shared_partials/navbar_default" %>
+
 <%= yield %>
 
 </body>
