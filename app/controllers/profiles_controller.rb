@@ -17,11 +17,16 @@ class ProfilesController < ApplicationController
 	end
 
 	def edit
-		unless params[:id] == @current_user_profile.id.to_s
+		if params[:id] && params[:id] != @current_user_profile.id.to_s
 			redirect_to edit_profile_path(@current_user_profile) 
 		end
 		
 		@location = current_user.location || Location.new
+
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 
 	def update
