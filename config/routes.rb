@@ -4,11 +4,17 @@ Rails.application.routes.draw do
 
   resources :profiles do
   	member do
-			post '/edit_location', to: 'locations#create_or_associate', as: :edit_location
+			post '/edit_location', to: 'locations#create_or_associate'
 		end
 	end
 
-	get '/edit_profile', to: 'profiles#edit', as: :edit_current_user_profile
+	resources :locations, only: [:index] do
+		member do
+			post '/create_or_associate', to: 'locations#create_or_associate'
+		end
+	end
+
+	get '/edit_profile_modal', to: 'profiles#edit', as: :edit_current_user_profile
 
 	post '/start_conversation', to: 'conversations#create', as: :create_conversation
 	post '/add_to_conversation', to: 'conversations#update', as: :update_conversation

@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'devise'
 gem 'kaminari'
+gem 'jquery-turbolinks' # // may be needed to get javascript working in the future
 
 # handles for '' in forms and keeps them null in db
 gem "nilify_blanks"
