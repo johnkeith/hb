@@ -2,6 +2,7 @@
   "name": "huckleberry",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "3.3.4"
+    "bootstrap-sass": "3.3.4",
+    "slick.js": "1.5.5"
   }
 }

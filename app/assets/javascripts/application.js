@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
+//= require slick.js/slick/slick
 //= COMMENTED require bootstrap-sass/assets/javascripts/bootstrap
 //= require_tree .
