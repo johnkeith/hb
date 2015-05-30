@@ -8,7 +8,9 @@
 	</head>
 	<body>
 
-	<%= render "shared_partials/navbar_default" %>
+	<% unless params[:controller] == "landing" %>
+		<%= render "shared_partials/navbar_default" %>
+	<% end %>
 
 	<div class="container">
 		<%= yield %>
