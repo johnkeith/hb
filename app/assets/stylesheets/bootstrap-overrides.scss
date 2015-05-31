@@ -1,0 +1,23 @@
+.navbar {
+	border-radius: 0px;
+	.navbar-brand {
+		padding: 0px;
+		img {
+			height: 50px;
+		}
+	}
+}
+@media (max-width: 1199px) {
+	.navbar {
+		.navbar-brand {
+			padding-top: 0px;
+		}
+	}
+}
+
+// body {
+// 	background: white;
+// 	.container {
+// 		margin-top: 80px;
+// 	}
+// }
