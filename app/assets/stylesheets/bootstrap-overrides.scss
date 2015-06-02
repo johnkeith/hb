@@ -19,6 +19,11 @@
 	display: block;
 	width: 100%;
 }
+
+.btn-half {
+	display: block;
+	width: (100% / 3);
+}
 .btn-clear {
 	background: rgba(255,255,255,0.05);
 	color: white;
