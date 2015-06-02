@@ -11,19 +11,31 @@
 	  height: 100%;
 	  position: fixed;
 	  z-index: -1000;
-	  .logo-holder {
-	  	width: 100%;
-		  .logo {
-		  	max-height: 350px;
-		  	max-width: 350px;
-		  }
-		}
+	}
+	.logo-holder {
+  	width: 100%;
+	  .logo {
+	  	max-height: 350px;
+	  	max-width: 350px;
+	  }
 	}
 	.jumbotron {
-		background: rgba(255,255,255,0.1);
-		margin-top: 80px;
-		h1 {
-			color: white;	
+		background: rgba(255,255,255,0.05);
+		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+		color: white;
+		margin-top: 10px;
+		.new_user { // devise form
+			margin-top: 40px;
 		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.jumbotron {
+		.btn {
+			display: block;
+			margin-bottom: 20px;
+			width: 100%;
+		}		
 	}
 }

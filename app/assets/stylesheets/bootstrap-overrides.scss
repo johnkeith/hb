@@ -15,9 +15,20 @@
 	}
 }
 
-// body {
-// 	background: white;
-// 	.container {
-// 		margin-top: 80px;
-// 	}
-// }
+.btn-full {
+	display: block;
+	width: 100%;
+}
+.btn-clear {
+	background: rgba(255,255,255,0.05);
+	color: white;
+}
+
+// jtk extras
+.row-with-headroom {
+	padding-top: 20px;
+}
+
+.row-with-legroom {
+	padding-bottom: 20px;
+}
