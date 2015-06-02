@@ -7,7 +7,8 @@
 	</div>
 
   <div class="form-group">
-  	<%# f.label :password %><% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %>
+  	<%# f.label :password %>
+    <!--<% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %>-->
     <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg", placeholder: "Password" %>
   </div>
 

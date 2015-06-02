@@ -16,14 +16,14 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row row-with-headroom row-with-legroom">
-					<div class="col-md-2 col-md-offset-3">
+					<div class="col-md-4 text-center">
 						<button class="btn btn-default btn-lg btn-clear">Learn More</button>
 					</div>
-					<div class="col-md-2">
-						<button class="btn btn-success btn-lg">Join Us!</button>
+					<div class="col-md-4 text-center">
+						<%= link_to 'Create an Account', new_user_registration_path, class: 'btn btn-success btn-lg' %>
 					</div>
-					<div class="col-md-2">
-						<%= button_to 'Sign In', new_user_session_path, class: 'btn btn-default btn-lg btn-clear' %> 
+					<div class="col-md-4 text-center">
+						<%= link_to 'Sign In', new_user_session_path, class: 'btn btn-default btn-lg btn-clear' %> 
 					</div>
 				</div>
 			</div>
