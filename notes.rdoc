@@ -6,3 +6,5 @@ Tend toward an API approach. Try to have controller actions respond to JSON out 
 A location has many users
 A user belongs to a location
 A user has one profile
+
+Just a change for redeploy
