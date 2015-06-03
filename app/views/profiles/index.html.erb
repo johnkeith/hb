@@ -5,7 +5,7 @@
 			<div class="caption">
 				<small class="profile-location"><strong><%= p.try(:location).try(:country) %></strong></small>
 			</div>
-			<a href="<%= profile_path(p) %>"><div class="profile-initials"><%= "#{p.first_name.try(:[], 0} #{p.last_name.try(:[], 0}" %></div></a>
+			<a href="<%= profile_path(p) %>"><div class="profile-initials"><%= "#{p.first_name.try(:[], 0)} #{p.last_name.try(:[], 0)}" %></div></a>
 			<div class="caption">
 				<p><%= p.personal_description %></p>
 			</div>
