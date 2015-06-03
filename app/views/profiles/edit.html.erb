@@ -1,7 +1,14 @@
-<h2>Personal Information</h2>
-<%= render 'edit_personal_information_form' %>
+<div class="row">
+	<div class="col-md-6">
+		<h2>Personal Information</h2>
+		<%= render 'edit_personal_information_form' %>
+	</div>
 
-<h2>Location Information</h2>
-<%= render 'edit_location_form' %>
+	<div class="col-md-6">
+		<h2>Location Information</h2>
+		
+		<%= render 'edit_location_form' %>
 
-<button id='profile-edit-form-submit' class='btn btn-lg btn-primary'>Update Profile</button>
+		<button id='profile-edit-form-submit' class='btn btn-lg btn-primary'>Update Profile</button>
+	</div>
+</div>
