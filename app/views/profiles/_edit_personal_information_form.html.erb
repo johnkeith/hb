@@ -1,27 +1,27 @@
 <%= form_for @current_user_profile, remote: true do |f| %>
 	<div class="form-group">
 		<%= f.label :first_name, 'First Name' %>
-		<%= f.text_field :first_name, class: "form-control" %>
+		<%= f.text_field :first_name, class: "form-control input-lg" %>
 	</div>
 
 	<div class="form-group">
 		<%= f.label :last_name, 'Last Name' %>
-		<%= f.text_field :last_name, class: "form-control" %>
+		<%= f.text_field :last_name, class: "form-control input-lg" %>
 	</div>
 
 	<div class="form-group">
 		<%= f.label :age, 'Age' %>
-		<%= f.number_field :age, in: 0..150, step: 1, class: "form-control" %>
+		<%= f.number_field :age, in: 0..150, step: 1, class: "form-control input-lg" %>
 	</div>
 
 	<div class="form-group">
 		<%= f.label :personal_description, 'Please describe yourself!' %>
-		<%= f.text_area :personal_description, size: "30x5", class: "form-control" %>
+		<%= f.text_area :personal_description, size: "30x5", class: "form-control input-lg" %>
 	</div>
 
 	<div class="form-group">
 		<%= f.label :city_description, 'Please describe where you live!' %>
-		<%= f.text_area :city_description, size: "30x5", class: "form-control" %>
+		<%= f.text_area :city_description, size: "30x5", class: "form-control input-lg" %>
 	</div>
 
 	<%= f.submit 'Update Personal Information', class: 'profile-submit hidden' %>
