@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   root to: 'landing#index'
 
   resources :profiles do
-  	member do
-			post '/edit_location', to: 'locations#create_or_associate'
-		end
+  # 	member do
+		# 	post '/edit_location', to: 'locations#create_or_associate'
+		# end
 	end
 
-	resources :locations, only: [:index]
+	resources :locations, only: [:index, :update] do
+	end
 
 	post '/create_or_associate', to: 'locations#create_or_associate', as: :create_or_associate_location
 	get '/edit_profile_modal', to: 'profiles#edit', as: :edit_current_user_profile

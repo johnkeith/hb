@@ -1,4 +1,4 @@
-<%= form_for @location, url: create_or_associate_location_path(@location), method: 'POST', remote: true do |f| %>
+<%= form_for @location, url: create_or_associate_location_path, method: 'POST', remote: true do |f| %>
 	<div class="form-group">
 		<%= f.label :city, 'City' %>	
 		<%= f.text_field :city, class: "form-control input-lg" %>
