@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :get_user_profile
+  after_action :prepare_unobtrusive_flash
 
 	private 
   

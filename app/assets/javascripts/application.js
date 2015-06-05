@@ -17,4 +17,6 @@
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
 //= require slick.js/slick/slick
 //= COMMENTED require bootstrap-sass/assets/javascripts/bootstrap
+//= require unobtrusive_flash
+//= require unobtrusive_flash_bootstrap
 //= require_tree .
