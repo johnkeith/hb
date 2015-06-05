@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
 	def update
 		respond_to do |f|
 			if @current_user_profile.update_attributes(profile_params)
-				flash[:success] = "You successfully updated your profile information!"
+				flash.now[:success] = "You successfully updated your profile information!"
 				f.json { render json: @current_user_profile, status: 200 }
 			else
 				f.json { render json: @current_user_profile.errors.full_messages, status: 422 }
